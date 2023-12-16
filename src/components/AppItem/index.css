@@ -1,0 +1,23 @@
+.app-list {
+  width: 114px;
+  border-radius: 10px;
+  height: 130px;
+  list-style-type: none;
+  background-color: #ffffff;
+  padding: 5px;
+  margin: 10px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+.image {
+  height: 74px;
+  width: 74px;
+  border-radius: 10px;
+}
+.app-name {
+  font-size: 11px;
+  color: #1e293b;
+  font-weight: 900;
+}

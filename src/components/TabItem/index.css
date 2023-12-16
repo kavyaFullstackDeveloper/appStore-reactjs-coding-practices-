@@ -1,0 +1,20 @@
+/* Write your CSS here */
+.tab {
+  font-size: 15px;
+  color: #7b8794;
+  border-bottom: 2px solid #7b8794;
+  padding: 10px;
+  opacity: 80%;
+  cursor: pointer;
+}
+.active-tab {
+  color: #2563eb;
+  opacity: 1;
+  border-color: #2563eb;
+}
+
+button {
+  background-color: transparent;
+  border: 0px;
+  outline: none;
+}
