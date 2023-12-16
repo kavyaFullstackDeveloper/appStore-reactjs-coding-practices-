@@ -307,7 +307,7 @@ class AppStore extends Component {
   displayApps = event => {
     const value = event.target.value.toLowerCase()
     const searchData = appsList.filter(eachItem =>
-      eachItem.appName.toLowerCase().includes(value),
+      eachItem.appName.toLowerCase().includes(value.toLowerCase()),
     )
     this.setState({appsData: searchData})
   }
