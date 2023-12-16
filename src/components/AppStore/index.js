@@ -295,29 +295,41 @@ const appsList = [
 class AppStore extends Component {
   state = {
     activeTabId: tabsList[0].tabId,
-    appsData: appsList.filter(eachItem => eachItem.category === 'SOCIAL'),
+    searchInput: '',
   }
 
   onClickDisplay = tabId => {
     this.setState({activeTabId: tabId})
-    const searchData = appsList.filter(eachItem => eachItem.category === tabId)
-    this.setState({appsData: searchData})
   }
 
   displayApps = event => {
-    const value = event.target.value.toLowerCase()
-    const searchData = appsList.filter(eachItem =>
-      eachItem.appName.toLowerCase().includes(value.toLowerCase()),
+    this.setState({searchInput: event.target.value})
+  }
+
+  getActiveTabApps = searchedApps => {
+    const {activeTabId} = this.state
+    const filteredApps = searchedApps.filter(
+      eachSearchedApp => eachSearchedApp.category === activeTabId,
     )
-    this.setState({appsData: searchData})
+
+    return filteredApps
+  }
+
+  getSearchResults = () => {
+    const {searchInput} = this.state
+    const searchResults = appsList.filter(eachApp =>
+      eachApp.appName.toLowerCase().includes(searchInput.toLowerCase()),
+    )
+
+    return searchResults
   }
 
   render() {
-    const {activeTabId, appsData} = this.state
+    const {activeTabId} = this.state
 
-    const filteredData = appsList.filter(
-      eachItem => eachItem.category === activeTabId,
-    )
+    const searchResults = this.getSearchResults()
+
+    const appsData = this.getActiveTabApps(searchResults)
 
     return (
       <div className="app-store-container">
